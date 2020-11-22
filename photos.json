@@ -1,0 +1,30 @@
+{
+    "photos":
+    [
+      {
+        "src": "images/obr1.jpg",
+        "title": "obloha lad slnko",
+        "description": "krásny západ slnka na zamrznutom jazere"
+      },
+      {
+        "src": "images/obr2.jpg",
+        "title": "les kameňe kameň jazero západ slnko",
+        "description": "krásny západ slnka pri lese a jazere"
+      },
+      {
+        "src": "images/obr3.jpg",
+        "title": "animované jeleň les slnko hory",
+        "description": "animovaný obrázok pri západe slnka s horami"
+      },
+      {
+        "src": "images/obr4.jpg",
+        "title": "led kruh fialová modrá",
+        "description": "fialový led kruh na animácií"
+      },
+      {
+        "src": "images/obr5.jpg",
+        "title": "budúcnosť future 3d 3D",
+        "description": "3D obrázok z budúcnosti"
+      }      
+    ]
+  }
