@@ -28,16 +28,16 @@
 
     <div class="form-group">
       <label for="filter">Filtruj obrázky</label>
-      <input type="text" name="filter" class="form-control" id="filter" onblur="filterImages()">
+      <input type="text" name="filter" class="form-control" id="filter" onkeyup="filterImages()">
     </div>
 
     
     <div id="myModal" class="modal">
       <span class="close cursor" onclick="closeModal()">&times;</span>
       <div class="modal-content">
-        <button type="button" class="btn btn-light" onclick="playSlides()">Spusti prezentáciu</button>
+        <button type="button" class="btn btn-light" onclick="playPresentation()">Spusti prezentáciu</button>
         <p id="title-image"></p>
-        <p id="descriptin-image"></p>
+        <p id="descripton-image"></p>
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
 

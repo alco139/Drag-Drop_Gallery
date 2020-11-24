@@ -27,15 +27,25 @@ var slideIndex = 1;
 if (localStorage.getItem("photos")) {
   let images = JSON.parse(localStorage.getItem('photos'))
   createImages(images)
-  generateModalImages(images)
+  generateModalContentImages(images)
 } else {
   fetch("../photos.json").then(async (response) => {
       let images = await response.json()
       createImages(images)
-      generateModalImages(images)
+      generateModalContentImages(images)
   })
 }
+function filterImages(){
+  textFilter = document.getElementById("filter");
+  const images = $(".drag img")
 
+  for(let i = 0; i < 5 ;i++){
+    if(images[i].alt.includes(textFilter.value) || images[i].title.includes(textFilter.value)){
+      images[i].style.display = "inline"
+    }
+    else images[i].style.display = "none"
+  }
+}
 
 
 $(document).ready(function()
@@ -65,7 +75,7 @@ $(document).ready(function()
       onDrop: function (item, container, _super) {
           $('#output').text(group.sortable("serialize").get().join("\n"))
           _super(item, container)
-          mixImages()
+          shuffleImages()
       },
       onDrag: function ($item, position) {
       $item.css({
@@ -82,15 +92,15 @@ $(document).ready(function()
   
 });
 
-function generateModalImages(images){
+function generateModalContentImages(images){
   images.photos.forEach(image => {
-      createModalImage(image)
+      createModalContentImage(image)
   })
   showSlides(slideIndex);
   console.log(images)
 }
 
-function createModalImage(image){
+function createModalContentImage(image){
   let slideElement = document.createElement("div")
   slideElement.classList.add("mySlides")
   let img = document.createElement("img")
@@ -110,7 +120,7 @@ function createImages(images){
   createImageListeners()
 }
 
-function mixImages(){
+function shuffleImages(){
   const images = $(".drag img")
   const mySlides = [...$(".mySlides")]
   mySlides.forEach((item,index) =>{
@@ -185,8 +195,8 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   description.innerHTML = slides[slideIndex - 1].children[0].alt
   title.innerHTML = slides[slideIndex - 1].children[0].title
-  title.style.color = 'black'
-  description.style.color = 'black'
+  title.style.color = 'white'
+  description.style.color = 'white'
 }
 
 window.onbeforeunload = function () {
@@ -213,7 +223,7 @@ window.onbeforeunload = function () {
   localStorage.setItem('photos', JSON.stringify(images));
 }
 let timer;
-function playSlides(){
+function playPresentation(){
   if (timer) {
      clearInterval( timer );
      timer=null;
